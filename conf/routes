@@ -1,0 +1,10 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+POST     /v1/staffmember/create                     @com.fileee.controllers.StaffController.createStaffMember()
+PATCH    /v1/staffmember/update/:id                 @com.fileee.controllers.StaffController.updateStaffMember(id: String)
+DELETE   /v1/staffmember/delete/:id                 @com.fileee.controllers.StaffController.deleteStaffMember(id: String)
+GET      /v1/staffmember/list                       @com.fileee.controllers.StaffController.listStaffMember(sort: String)
+PATCH    /v1/staffmember/:id/worklog/update         @com.fileee.controllers.WorklogController.updateWorkLog(id: String)
+GET      /v1/staffmember/:id/payroll                @com.fileee.controllers.WorklogController.getSalary(id: String, pdf:String, from:String, to:String)

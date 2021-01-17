@@ -1,0 +1,7 @@
+*.idea*
+*.iml
+.project
+.settings
+**/target
+.DS_Store
+RUNNING_PID
