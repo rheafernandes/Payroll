@@ -110,7 +110,7 @@ public class WorklogManager {
                 }});
         } catch (Exception e) {
             log.error("WorklogManager::fetchSalary:: Unable to fetch salary , please try again later" + e.getMessage());
-            throw new ServerException("ERR_FETCH_SALARY", "There was an issue while fetching salary, please try again.");
+            throw e;
         }
     }
 

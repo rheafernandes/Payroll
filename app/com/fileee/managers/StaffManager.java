@@ -72,11 +72,11 @@ public class StaffManager {
             }});
         } catch (Exception e) {
             log.error("StaffManager::createStaffMember:: Unable to create a staff member, please try again later" + e.getMessage());
-            throw new ServerException("ERR_STAFF_CREATE", e.getMessage());
+            throw e;
         }
     }
 
-    private Response listStaffMembers(Request request) {
+    private Response listStaffMembers(Request request) throws Exception {
         try {
             log.info("StaffManager::listStaffMembers:: Trying to fetch the list of Staff Members");
             List<Map> staffMembers = store.fetchStaff();
@@ -97,11 +97,11 @@ public class StaffManager {
             return response;
         } catch (Exception e){
             log.error("StaffManager::listStaffMembers:: Unable to list staff members, please try again later" + e.getMessage());
-            throw new ServerException("ERR_LIST_STAFF_MEMBERS", e.getMessage());
+            throw e;
         }
     }
 
-    private Response updateStaffMember(Request request) {
+    private Response updateStaffMember(Request request) throws Exception{
         log.info("StaffManager::updateStaffMember:: Trying to update the list of Staff Members");
         Map<String, Object> input = (Map<String, Object>) request.getRequest().get(type);
         try {
@@ -119,7 +119,7 @@ public class StaffManager {
             }});
         }catch (Exception e) {
             log.error("StaffManager::updateStaffMember:: Unable to delete staff member, please try again later" + e.getMessage());
-            throw new ServerException("ERR_STAFF_UPDATE", e.getMessage());
+            throw e;
         }
     }
 
